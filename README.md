@@ -1,0 +1,1 @@
+A simple product page demo by Vadym Sokhatskyi.
