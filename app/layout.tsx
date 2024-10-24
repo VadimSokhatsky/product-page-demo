@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import {Theme, Flex} from "@radix-ui/themes";
+import {Theme, Flex, Box} from "@radix-ui/themes";
 
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
@@ -31,18 +31,22 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
         >
-        <Theme className="flex flex-col" style={{ backgroundColor: 'var(--gold-2)' }}>
-        <header className="h-16">
-            <Flex height="100%" style={{ backgroundColor: 'var(--gold-8)' }}>
+            <Theme className="flex flex-col" style={{ backgroundColor: 'var(--gold-2)' }}>
+                <header className="h-16">
+                    <Flex height="100%" style={{ backgroundColor: 'var(--gold-8)' }}>
 
-            </Flex>
-        </header>
-          <main className="flex-grow">
-            {children}
-          </main>
-          <footer className="h-4" style={{ backgroundColor: 'var(--gold-8)' }}></footer>
-        </Theme>
-
+                    </Flex>
+                </header>
+                <main className="flex flex-grow flex-col">
+                    <Flex width="100%" height="100%" className="flex-grow py-4 box-border">
+                        <Flex className="w-1/4 flex-grow" style={{ borderRight: '1px solid var(--gold-8)' }}></Flex>
+                        <Box className="w-3/4 flex-grow">
+                            {children}
+                        </Box>
+                    </Flex>
+                </main>
+                <footer className="h-4" style={{ backgroundColor: 'var(--gold-8)' }}></footer>
+            </Theme>
         </body>
         </html>
   );
