@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import {Theme, Flex, Box} from "@radix-ui/themes";
 
+import Aside from "@/app/components/aside";
+
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
 
@@ -26,7 +28,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+    return (
     <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
@@ -39,7 +41,7 @@ export default function RootLayout({
                 </header>
                 <main className="flex flex-grow flex-col">
                     <Flex width="100%" height="100%" className="flex-grow py-4 box-border">
-                        <Flex className="w-1/4 flex-grow" style={{ borderRight: '1px solid var(--gold-8)' }}></Flex>
+                        <Aside />
                         <Box className="w-3/4 flex-grow">
                             {children}
                         </Box>

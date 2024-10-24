@@ -19,3 +19,19 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.rt-BaseTabList,
+.rt-TabNavList {
+  box-shadow: none !important;
+}
+
+.rt-TabNavItem,
+.rt-TabNavLink,
+.rt-BaseTabListTrigger,
+.rt-BaseTabListTriggerInner,
+.rt-TabNavLinkInner,
+.rt-TabNabLinkInnerHidden {
+  width: 100% !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: var(--gold-12) !important;
+}

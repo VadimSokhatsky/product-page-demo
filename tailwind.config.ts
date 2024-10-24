@@ -12,6 +12,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundColor: {
+        gold8: '#EAE6DB',
+      },
     },
   },
   plugins: [],
