@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import {Theme} from "@radix-ui/themes";
+import {Theme, Flex} from "@radix-ui/themes";
 
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
@@ -28,13 +28,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Theme>
-          {children}
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
+        >
+        <Theme className="flex flex-col" style={{ backgroundColor: 'var(--gold-2)' }}>
+        <header className="h-16">
+            <Flex height="100%" style={{ backgroundColor: 'var(--gold-8)' }}>
+
+            </Flex>
+        </header>
+          <main className="flex-grow">
+            {children}
+          </main>
+          <footer className="h-4" style={{ backgroundColor: 'var(--gold-8)' }}></footer>
         </Theme>
-      </body>
-    </html>
+
+        </body>
+        </html>
   );
 }
