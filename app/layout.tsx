@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import {Theme, Flex, Box} from "@radix-ui/themes";
+import {Theme, Flex, Box, Heading, Em, Text} from "@radix-ui/themes";
 
 import Aside from "@/app/components/aside";
 
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
+import Tree from "@/app/components/tree";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,9 +35,24 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
         >
             <Theme className="flex flex-col" style={{ backgroundColor: 'var(--gold-2)' }}>
-                <header className="h-16">
-                    <Flex height="100%" style={{ backgroundColor: 'var(--gold-8)' }}>
-
+                <header className="h-16 px-8 box-border" style={{ backgroundColor: 'var(--gold-8)' }}>
+                    <Flex justify="center" align="center" height="100%" >
+                        <Tree size={1} color="#FAF9F2" />
+                        <Heading
+                            className="ml-4 mr-auto"
+                            size="5"
+                            style={{ color: 'var(--gold-2)' }}
+                        >
+                            <Em>FIRnest</Em>
+                        </Heading>
+                        <Text
+                            size="5"
+                            className="mx-auto"
+                            style={{ color: 'var(--gold-2)'}}
+                        >
+                            <Em>Breathe. Bloom. Belong.</Em>
+                        </Text>
+                        <div className="ml-auto"></div>
                     </Flex>
                 </header>
                 <main className="flex flex-grow flex-col">

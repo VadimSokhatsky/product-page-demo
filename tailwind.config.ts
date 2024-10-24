@@ -13,7 +13,9 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       backgroundColor: {
-        gold8: '#EAE6DB',
+        gold2: '#FAF9F2',
+        gold10: '#8C7A5E',
+        gold12: '#3B352B',
       },
     },
   },
