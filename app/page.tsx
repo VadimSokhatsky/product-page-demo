@@ -52,20 +52,6 @@ export default function Home() {
               height="100%"
               style={{color: 'var(--gold-12)'}}
         >
-            <div className="hidden sm:flex absolute top-8 right-8 w-64">
-                <Button
-                    style={{
-                        width: '100%',
-                        height: '48px',
-                        color: 'var(--gold-2)',
-                        backgroundColor: 'var(--gold-12)',
-                        borderRadius: '8px',
-                    }}
-                    className="hover:cursor-pointer hover:brightness-150 duration-500"
-                >
-                    Add to Cart
-                </Button>
-            </div>
             <Flex className="flex-col-reverse sm:flex-row gap-4 sm:gap-8">
                 <div
                     className={`
@@ -98,7 +84,7 @@ export default function Home() {
                         }
                         <Text>$</Text>
                     </Flex>
-                    <Text className="hidden sm:flex">{product?.description}</Text>
+                    <Text className="hidden sm:flex" style={{ color: 'var(--gold-10)' }}>{product?.description}</Text>
                     <div className="hidden sm:flex gap-2 flex-wrap mt-auto">
                         {product?.colors.map((c) => {
                             const isActive = c.value === color;
@@ -122,6 +108,20 @@ export default function Home() {
                         })}
                     </div>
                 </Flex>
+                <div className="w-64">
+                    <Button
+                        style={{
+                            width: '100%',
+                            height: '48px',
+                            color: 'var(--gold-2)',
+                            backgroundColor: 'var(--gold-12)',
+                            borderRadius: '8px',
+                        }}
+                        className="hover:cursor-pointer hover:brightness-150 duration-500"
+                    >
+                        Add to Cart
+                    </Button>
+                </div>
             </Flex>
             <Flex align="center" className="gap-2">
                 <svg
@@ -186,6 +186,7 @@ export default function Home() {
                     Add to Cart
                 </Button>
             </div>
+            <Text style={{ color: 'var(--gold-10)' }}>{product?.info}</Text>
         </Flex>
     )
 }
