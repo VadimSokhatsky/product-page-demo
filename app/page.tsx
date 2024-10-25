@@ -48,22 +48,28 @@ export default function Home() {
     }
 
     return (
-        <Flex direction="column" className="flex-grow p-8 box-border gap-8" width="100%" height="100%"
+        <Flex direction="column" className="flex-grow px-4 py-0 sm:px-8 sm:py-8 box-border gap-8" width="100%" height="100%"
               style={{color: 'var(--gold-12)'}}>
-            <Flex className="gap-8">
+            <Flex className="flex-col-reverse sm:flex-row gap-4 sm:gap-8">
                 <div
-                    className={`w-96 min-w-96 max-w-96 h-96 min-h-96 max-h-96 bg-center rounded-xl bg-contain ${photo || ''} duration-500`}
+                    className={`
+                    w-96 sm:w-96
+                    min-w-96 sm:min-w-96
+                    max-w-96 sm:max-w-96
+                    h-96 sm:h-96
+                    min-h-96 sm:min-h-96
+                    max-h-96 sm:max-h-96
+                    bg-center rounded-xl bg-contain ${photo || ''} duration-500`}
                 >
 
                 </div>
-                <Flex direction="column" width="100%" className="gap-4">
+                <Flex width="100%" className="flex-row sm:flex-col gap-4 items-end sm:items-start">
                     <Heading>{product?.name}</Heading>
-                    <Flex className="gap-2 font-bold">
+                    <Flex className="gap-2 font-bold ml-auto sm:m-0">
                         <Text
                             style={{
                                 textDecoration: product?.discount ? 'line-through' : 'none',
                                 filter: product?.discount ? 'contrast(0.3)' : 'none',
-                                // color: 'var(--gold-5)'
                             }}
                         >
                             {product?.price}
@@ -76,8 +82,8 @@ export default function Home() {
                         }
                         <Text>$</Text>
                     </Flex>
-                    <Text>{product?.description}</Text>
-                    <Flex className="gap-2 flex-wrap mt-auto">
+                    <Text className="hidden sm:flex">{product?.description}</Text>
+                    <div className="hidden sm:flex gap-2 flex-wrap mt-auto">
                         {product?.colors.map((c) => {
                             const isActive = c.value === color;
                             return (
@@ -98,7 +104,7 @@ export default function Home() {
                                 </Flex>
                             )
                         })}
-                    </Flex>
+                    </div>
                 </Flex>
             </Flex>
             <Flex align="center" className="gap-2">
@@ -129,6 +135,28 @@ export default function Home() {
                         fill="#8C7A5E" fill-rule="evenodd" clip-rule="evenodd"></path>
                 </svg>
             </Flex>
+            <div className="flex sm:hidden gap-2 flex-wrap mx-auto">
+                {product?.colors.map((c) => {
+                    const isActive = c.value === color;
+                    return (
+                        <Flex
+                            justify="center"
+                            align="center"
+                            className="w-24 h-8 border-r-8 hover:cursor-pointer hover:brightness-90 duration-500"
+                            style={{
+                                backgroundColor: c.hex,
+                                border: `${isActive ? 3 : 1}px solid var(--gold-${isActive ? 12 : 8})`,
+                                borderRadius: '8px',
+                                filter: c.available ? 'none' : 'grayscale(1) opacity(0.5)',
+                                pointerEvents: c.available ? 'auto' : 'none',
+                            }}
+                            onClick={() => setColor(c.value)}
+                        >
+                            {c.label}
+                        </Flex>
+                    )
+                })}
+            </div>
         </Flex>
     )
 }

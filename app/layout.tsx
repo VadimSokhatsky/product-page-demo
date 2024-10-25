@@ -35,11 +35,11 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
         >
             <Theme className="flex flex-col" style={{ backgroundColor: 'var(--gold-2)' }}>
-                <header className="h-16 px-8 box-border" style={{ backgroundColor: 'var(--gold-8)' }}>
+                <header className="h-16 px-2 sm:px-8 box-border" style={{ backgroundColor: 'var(--gold-8)' }}>
                     <Flex justify="center" align="center" height="100%" >
                         <Tree size={1} color="#FAF9F2" />
                         <Heading
-                            className="ml-4 mr-auto"
+                            className="ml-2 sm:ml-4 mr-auto"
                             size="5"
                             style={{ color: 'var(--gold-2)' }}
                         >
@@ -47,7 +47,7 @@ export default function RootLayout({
                         </Heading>
                         <Text
                             size="5"
-                            className="mx-auto"
+                            className="hidden sm:flex mx-auto"
                             style={{ color: 'var(--gold-2)'}}
                         >
                             <Em>Breathe. Bloom. Belong.</Em>
@@ -58,7 +58,7 @@ export default function RootLayout({
                 <main className="flex flex-grow flex-col">
                     <Flex width="100%" height="100%" className="flex-grow py-4 box-border">
                         <Aside />
-                        <Box className="w-3/4 flex-grow">
+                        <Box className="w-full sm:w-3/4 flex-grow">
                             {children}
                         </Box>
                     </Flex>

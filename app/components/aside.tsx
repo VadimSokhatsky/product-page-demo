@@ -33,8 +33,8 @@ export default function Aside() {
 
     return (
         <aside
-            className="relative w-1/4 flex z-10"
-            style={{ borderRight: '1px solid var(--gold-8)' }}
+            className="absolute -translate-x-full lg:translate-x-0 lg:relative w-full sm:w-1/4 h-full sm:h-auto z-10"
+            style={{ borderRight: '1px solid var(--gold-8)', backgroundColor: 'var(--gold-2)' }}
             onMouseEnter={ () => setIsOpen(true)}
         >
             <Flex
