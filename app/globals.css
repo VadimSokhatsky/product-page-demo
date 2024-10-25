@@ -35,3 +35,19 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   color: var(--gold-12) !important;
 }
+
+.bed-ivory-1 {
+  background-image: url('../public/bed-ivory-1.png');
+}
+.bed-ivory-2 {
+  background-image: url('../public/bed-ivory-2.png');
+}
+.bed-ivory-3 {
+  background-image: url('../public/bed-ivory-3.png');
+}
+.bed-green-1 {
+  background-image: url('../public/bed-green-1.png');
+}
+.bed-green-2 {
+  background-image: url('../public/bed-green-2.png');
+}

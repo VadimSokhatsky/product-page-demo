@@ -8,8 +8,26 @@ export const PRODUCT: IProduct = {
     price: 999,
     discount: 30,
     colors: [
-        { value: 'color1', label: 'Color 1', available: true, hex: '#fecaca' },
-        { value: 'color2', label: 'Color 2', available: true, 'hex': '#bbf7d0' },
-        { value: 'color3', label: 'Color 3', available: false, 'hex': '#bfdbfe' },
+        {
+            value: 'ivory',
+            label: 'Ivory',
+            available: true,
+            hex: '#FEFBE9',
+            photos: ['bed-ivory-1', 'bed-ivory-2', 'bed-ivory-3'],
+        },
+        {
+            value: 'green',
+            label: 'Green',
+            available: true,
+            hex: '#C4E8D1',
+            photos: ['bed-green-1', 'bed-green-2'],
+        },
+        {
+            value: 'pink',
+            label: 'Pink',
+            available: false,
+            hex: '#F6CEE7',
+            photos: [],
+        },
     ],
 }
