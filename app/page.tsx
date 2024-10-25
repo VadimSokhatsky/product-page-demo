@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useState} from "react";
-import {Flex, Heading, Text} from "@radix-ui/themes";
+import {Flex, Heading, Text, Button} from "@radix-ui/themes";
 
 import {IProduct} from "@/app/types/product";
 import {PRODUCT} from "@/app/data/product";
@@ -48,8 +48,24 @@ export default function Home() {
     }
 
     return (
-        <Flex direction="column" className="flex-grow px-4 py-0 sm:px-8 sm:py-8 box-border gap-8" width="100%" height="100%"
-              style={{color: 'var(--gold-12)'}}>
+        <Flex direction="column" className="relative flex-grow px-4 py-0 sm:px-8 sm:py-8 box-border gap-8" width="100%"
+              height="100%"
+              style={{color: 'var(--gold-12)'}}
+        >
+            <div className="hidden sm:flex absolute top-8 right-8 w-64">
+                <Button
+                    style={{
+                        width: '100%',
+                        height: '48px',
+                        color: 'var(--gold-2)',
+                        backgroundColor: 'var(--gold-12)',
+                        borderRadius: '8px',
+                    }}
+                    className="hover:cursor-pointer hover:brightness-150 duration-500"
+                >
+                    Add to Cart
+                </Button>
+            </div>
             <Flex className="flex-col-reverse sm:flex-row gap-4 sm:gap-8">
                 <div
                     className={`
@@ -156,6 +172,19 @@ export default function Home() {
                         </Flex>
                     )
                 })}
+            </div>
+            <div className="flex sm:hidden w-full">
+                <Button
+                    style={{
+                        width: '100%',
+                        height: '48px',
+                        color: 'var(--gold-2)',
+                        backgroundColor: 'var(--gold-12)',
+                        borderRadius: '8px',
+                    }}
+                >
+                    Add to Cart
+                </Button>
             </div>
         </Flex>
     )
