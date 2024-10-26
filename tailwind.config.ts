@@ -14,10 +14,12 @@ const config: Config = {
       },
       backgroundColor: {
         gold2: '#FAF9F2',
+        gold8: '#B9A88D',
         gold10: '#8C7A5E',
         gold12: '#3B352B',
       },
       textColor: {
+        gold8: '#B9A88D',
         gold2: '#FAF9F2',
       },
     },

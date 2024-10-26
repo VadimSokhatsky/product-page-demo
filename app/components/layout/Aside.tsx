@@ -1,15 +1,22 @@
 'use client';
 
-import {CSSProperties, useEffect, useState} from "react";
+import {CSSProperties, useEffect, useState, Dispatch, SetStateAction} from "react";
 
-import {Flex, TabNav, Text, Em, Heading} from "@radix-ui/themes";
+import {BsTreeFill} from "react-icons/bs"
 
-import "../globals.css";
-import Tree from "@/app/components/tree";
+import {Flex, TabNav, Text, Em} from "@radix-ui/themes";
 
-export default function Aside() {
+import "../../globals.css";
 
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+export default function Aside(
+    props: {
+        menuOpen: boolean,
+        setMenuOpen: Dispatch<SetStateAction<boolean>>,
+    }
+) {
+
+    const { menuOpen, setMenuOpen } = props;
+
     const [style, setStyle] = useState<CSSProperties>({
         width: '100%',
         height: '100%',
@@ -20,22 +27,22 @@ export default function Aside() {
     useEffect( () => {
         setStyle({
             ...style,
-            transform: `translateX(${isOpen ? '0' : '-100'}%)`,
+            transform: `translateX(${menuOpen ? '0' : '-100'}%)`,
         })
-    }, [isOpen] )
+    }, [menuOpen] )
 
     const routes = [
         { href: '#', label: 'Home' },
         { href: '#', label: 'Catalog' },
         { href: '#', label: 'About Us' },
         { href: '#', label: 'Contacts' },
-    ]
+    ];
 
     return (
         <aside
-            className="absolute -translate-x-full lg:translate-x-0 lg:relative w-full sm:w-1/4 h-full sm:h-auto z-10"
+            className={`absolute ${menuOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 -translate-y-4 lg:translate-y-0 lg:relative w-full md:w-96 lg:w-1/4 h-full max-h-full lg:h-auto z-10 duration-500`}
             style={{ borderRight: '1px solid var(--gold-8)', backgroundColor: 'var(--gold-2)' }}
-            onMouseEnter={ () => setIsOpen(true)}
+            onMouseEnter={ () => setMenuOpen(true)}
         >
             <Flex
                 className="absolute top-0 left-0 w-full h-full"
@@ -43,22 +50,17 @@ export default function Aside() {
             >
                 <Flex className="relative w-full h-full">
                     <Flex className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4">
-                        <Tree size={6} color="#B9A88D" />
-                        <Heading size="7" style={{ color: 'var(--gold-8)', margin: '0 auto' }}>
-                            <Em>
-                                FIRnest
-                            </Em>
-                        </Heading>
+                        <BsTreeFill size="10rem" className="text-gold8 mx-auto" />
                     </Flex>
                 </Flex>
 
             </Flex>
             <TabNav.Root
                 style={style}
-                className="flex flex-col gap-4" onMouseLeave={() => setIsOpen(false)}
+                className="flex flex-col gap-4 !translate-x-0" onMouseLeave={() => setMenuOpen(false)}
             >
                 {routes.map((route) => (
-                    <Flex className="w-full pt-2 box-border hover:bg-gold12 text-gold2 duration-500 cursor-pointer">
+                    <Flex className={`w-full pt-2 box-border hover:bg-gold12 text-gold2 duration-0 md:duration-500 cursor-pointer`}>
                         <TabNav.Link
                             href={route.href}
                             style={{width: '100%'}}
@@ -76,8 +78,7 @@ export default function Aside() {
                 ))}
             </TabNav.Root>
             <Text
-                size="5"
-                className="absolute bottom-0 flex justify-center px-8 box-border"
+                className="absolute bottom-0 pb-16 lg:pb-0 flex justify-center px-8 box-border  md:text-xl"
                 style={{...style, bottom: '0', height: 'auto', color: 'var(--gold-9)'}}
             >
                 <Em>Breathe. Bloom. Belong.</Em>
