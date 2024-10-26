@@ -17,6 +17,9 @@ const config: Config = {
         gold10: '#8C7A5E',
         gold12: '#3B352B',
       },
+      textColor: {
+        gold2: '#FAF9F2',
+      },
     },
   },
   plugins: [],

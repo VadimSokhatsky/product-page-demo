@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import {Theme, Flex, Box, Heading, Em, Text} from "@radix-ui/themes";
+import { RiShoppingCartLine } from "react-icons/ri";
 
 import Aside from "@/app/components/aside";
+import Tree from "@/app/components/tree";
 
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
-import Tree from "@/app/components/tree";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -52,7 +54,7 @@ export default function RootLayout({
                         >
                             <Em>Breathe. Bloom. Belong.</Em>
                         </Text>
-                        <div className="ml-auto"></div>
+                        <RiShoppingCartLine size="1.75rem" className="text-gold2 ml-auto mr-2 sm:mr-0" />
                     </Flex>
                 </header>
                 <main className="flex flex-grow flex-col">
