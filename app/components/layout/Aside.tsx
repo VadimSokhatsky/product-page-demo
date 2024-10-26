@@ -59,8 +59,8 @@ export default function Aside(
                 style={style}
                 className="flex flex-col gap-4 !translate-x-0" onMouseLeave={() => setMenuOpen(false)}
             >
-                {routes.map((route) => (
-                    <Flex className={`w-full pt-2 box-border hover:bg-gold12 text-gold2 duration-0 md:duration-500 cursor-pointer`}>
+                {routes.map((route, index) => (
+                    <Flex className={`w-full pt-2 box-border hover:bg-gold12 text-gold2 duration-0 md:duration-500 cursor-pointer`} key={`route-${index}`}>
                         <TabNav.Link
                             href={route.href}
                             style={{width: '100%'}}

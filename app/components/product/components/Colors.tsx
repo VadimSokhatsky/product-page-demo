@@ -12,10 +12,11 @@ export default function Colors(
 
     return (
         <div className="flex gap-2 flex-wrap mt-auto">
-            {COLORS.map((c) => {
+            {COLORS.map((c, index) => {
                 const isActive = c.value === color;
                 return (
                     <Flex
+                        key={`color${index}`}
                         justify="center"
                         align="center"
                         className={`w-24 h-8 border-r-8 hover:cursor-pointer hover:brightness-110 duration-500 ${c.available ? '' : 'opacity-50 grayscale'} `}
