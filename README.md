@@ -21,7 +21,7 @@ The app developed with **Next.js**. It's using **RadiuxUI** and **TailwindCSS** 
 
 ### For feedback
 
-If you have any questions of suggestion for work please contact me in any convenient way for you:
+If you have any questions or suggestion for work please contact me in any convenient way for you:
 
 1. Email: vs.frlnc@gmail.com
 2. LinkedIn: https://www.linkedin.com/in/vadym-sokhatskyi-9b3950242/
