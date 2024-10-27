@@ -19,8 +19,12 @@ const config: Config = {
         gold12: '#3B352B',
       },
       textColor: {
+        gold10: '#8C7A5E',
         gold8: '#B9A88D',
         gold2: '#FAF9F2',
+      },
+      borderColor: {
+        gold8: '#B9A88D',
       },
     },
   },

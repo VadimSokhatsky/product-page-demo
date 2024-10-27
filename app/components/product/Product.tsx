@@ -33,7 +33,7 @@ export function Product() {
     }, [color]);
 
     return(
-        <Flex className="gap-8 flex-grow px-4 py-0 md:px-8 md:py-8 box-border">
+        <Flex className="gap-8 flex-grow px-4 py-4 md:px-8 md:py-8 box-border">
             <Flex direction="column" className="relative gap-4 md:gap-8" width="100%"
                   height="100%"
                   style={{color: 'var(--gold-12)'}}

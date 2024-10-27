@@ -19,7 +19,6 @@ export default function Aside(
 
     const [style, setStyle] = useState<CSSProperties>({
         width: '100%',
-        height: '100%',
         transform: 'translateX(-100%)',
         transitionDuration: '0.5s',
     });
@@ -40,49 +39,68 @@ export default function Aside(
 
     return (
         <aside
-            className={`absolute ${menuOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 -translate-y-4 lg:translate-y-0 lg:relative w-full md:w-96 lg:w-1/4 h-full max-h-full lg:h-auto z-10 duration-500`}
-            style={{ borderRight: '1px solid var(--gold-8)', backgroundColor: 'var(--gold-2)' }}
-            onMouseEnter={ () => setMenuOpen(true)}
+            className={`
+            flex 
+            absolute ${menuOpen ? 'translate-x-0' : '-translate-x-full'}
+             lg:translate-x-0 lg:relative
+              w-full md:w-96 lg:w-2/5 xl:w-1/4
+               h-full max-h-full lg:h-auto
+                lg:py-4 
+                bg-gold2 box-border 
+                z-10 duration-500
+            `}
+            onMouseEnter={() => setMenuOpen(true)}
+            onMouseLeave={() => setMenuOpen(false)}
         >
-            <Flex
-                className="absolute top-0 left-0 w-full h-full"
-                style={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
+            <div
+                className="
+                 relative 
+                 flex flex-col justify-between
+                  w-full flex-grow 
+                  h-full max-h-full lg:h-auto
+                  py-4 lg:py-0
+                  box-border bg-gold2
+                  md:border-r md:border-solid md:border-gold8
+                  z-10 duration-500
+                "
             >
-                <Flex className="relative w-full h-full">
-                    <Flex className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4">
-                        <BsTreeFill size="10rem" className="text-gold8 mx-auto" />
-                    </Flex>
-                </Flex>
+                <TabNav.Root
+                    style={style}
+                    className="flex flex-col gap-4 h-auto !lg:h-full flex-grow !translate-x-0"
 
-            </Flex>
-            <TabNav.Root
-                style={style}
-                className="flex flex-col gap-4 !translate-x-0" onMouseLeave={() => setMenuOpen(false)}
-            >
-                {routes.map((route, index) => (
-                    <Flex className={`w-full pt-2 box-border hover:bg-gold12 text-gold2 duration-0 md:duration-500 cursor-pointer`} key={`route-${index}`}>
-                        <TabNav.Link
-                            href={route.href}
-                            style={{width: '100%'}}
-                            className="w-full hover:text-gold2"
-                        >
-                            <Text
-                                size="5"
-                                className="w-full h-full px-8 box-border font-thin text-center text-gold10 hover:text-gold2"
-                                style={{ color: 'var(--gold-9' }}
+                >
+                    {routes.map((route, index) => (
+                        <Flex
+                            align="center"
+                            className={`w-full py-1 box-border hover:bg-gold12 text-gold2 duration-0 md:duration-500 cursor-pointer`}
+                            key={`route-${index}`}>
+                            <TabNav.Link
+                                href={route.href}
+                                style={{width: '100%'}}
+                                className="w-full hover:text-gold2"
                             >
-                                {route.label}
-                            </Text>
-                        </TabNav.Link>
-                    </Flex>
-                ))}
-            </TabNav.Root>
-            <Text
-                className="absolute bottom-0 pb-16 lg:pb-0 flex justify-center px-8 box-border  md:text-xl"
-                style={{...style, bottom: '0', height: 'auto', color: 'var(--gold-9)'}}
-            >
-                <Em>Breathe. Bloom. Belong.</Em>
-            </Text>
+                                <Text
+                                    size="5"
+                                    className="w-full h-full px-8 box-border font-thin text-center text-gold10 hover:text-gold2"
+                                    style={{color: 'var(--gold-9'}}
+                                >
+                                    {route.label}
+                                </Text>
+                            </TabNav.Link>
+                        </Flex>
+                    ))}
+                </TabNav.Root>
+                <Flex
+                    className="relative lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
+                    <BsTreeFill size="10rem" className="text-gold8 mx-auto"/>
+                </Flex>
+                <Text
+                    className="relative !h-8 flex justify-center lg:absolute lg:bottom-0 px-8 box-border  md:text-xl"
+                    style={{...style, color: 'var(--gold-9)'}}
+                >
+                    <Em>Breathe. Bloom. Belong.</Em>
+                </Text>
+            </div>
         </aside>
     )
 }

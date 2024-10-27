@@ -36,6 +36,12 @@ body {
   color: var(--gold-12) !important;
 }
 
+.rt-TabNavItem:hover {
+  * {
+    color: var(--gold-2) !important;
+  }
+}
+
 .bed-ivory-1 {
   background-image: url('../public/bed-ivory-1.png');
 }

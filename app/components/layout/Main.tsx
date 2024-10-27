@@ -17,9 +17,9 @@ export default function Main(
 
     return (
         <main className="flex flex-col flex-grow max-h-full overflow-hidden bg-gold2">
-            <Flex width="100%" height="100%" className="relative flex-grow h-full max-h-full overflow-hidden py-4 box-border">
+            <Flex width="100%" height="100%" className="relative flex-grow h-full max-h-full overflow-hidden box-border">
                 <Aside menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-                <Box className="w-full overflow-auto sm:w-3/4 flex-grow">
+                <Box className="w-full overflow-auto md:w-3/4 flex-grow">
                     {children}
                 </Box>
             </Flex>

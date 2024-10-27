@@ -12,7 +12,7 @@ export default function Header({ setMenuOpen }: { setMenuOpen: Dispatch<SetState
     }
 
     return (
-        <header className="h-32 md:h-24 lg:h-20 2xl:h-16 m-0 px-4 sm:px-8 box-border bg-gold8">
+        <header className="min-h-12 h-12 md:h-24 lg:h-20 2xl:h-16 m-0 px-4 sm:px-8 box-border bg-gold8">
             <Flex justify="center" align="center" height="100%">
                 <Flex
                     justify="center"
